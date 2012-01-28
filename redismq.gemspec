@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["michael.gorsuch@gmail.com"]
   gem.description   = %q{An implementation of topic exchange using Redis.}
   gem.summary       = %q{An implementation of topic exchange using Redis.}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/gorsuch/redismq"
 
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   gem.files         = `git ls-files`.split("\n")
