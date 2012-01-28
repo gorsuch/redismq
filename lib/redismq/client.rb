@@ -10,7 +10,7 @@ module RedisMQ
 
     def bpop(queue, timeout=0)
       (queue, message) = redis.blpop(queue_key(queue), timeout)
-      JSON.parse(message)
+      JSON.parse(message, :symbolize_names => true)
     end
 
     def connect_to_redis
@@ -20,7 +20,9 @@ module RedisMQ
     end
 
     def pop(queue)
-      JSON.parse(redis.lpop(queue_key(queue)))
+      result = redis.lpop(queue_key(queue))
+      return nil if result.nil?
+      JSON.parse(result, :symbolize_names => true)
     end
 
     def publish(topic, payload)
