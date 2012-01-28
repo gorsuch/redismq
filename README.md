@@ -43,7 +43,7 @@ client.bind('customer.signup', 'email')
 
 # assume that a message has been sent...
 client.pop('email')
-# {"header"=>{"topic"=>"customer.signup"}, "payload"=>{:id=>1}}
+# {:header=>{:topic=>"customer.signup"}, :payload=>{:id=>1}}
 
 # or, block and wait for something to hit the queue
 client.bpop('email')
