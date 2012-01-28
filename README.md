@@ -18,16 +18,33 @@ Or install it yourself as:
 
 ## Usage
 
+### As a publisher
+
 ```ruby
 require 'redismq'
 
 client = RedisMQ::Client.new
 
-# send all announcements to the customer.signup topic to the email queue
+# pretend a customer signed up, publish his info to the 'customer.signup' topic
+client.publish('customer.signup', { id: 1 })
+```
+
+### As a consumer
+
+```ruby
+require 'redismq'
+
+client = RedisMQ::Client.new
+
+# ensure that all items sent to customer.signup wind up in the email queue
 client.bind('customer.signup', 'email')
 
-# pretend a customer signed up
-client.publish('customer.signup', { id: 1 })
+# assume that a message has been sent...
+client.pop('email')
+# {"header"=>{"topic"=>"customer.signup"}, "payload"=>{:id=>1}}
+
+# or, block and wait for something to hit the queue
+client.bpop('email')
 ```
 
 ## Contributing
