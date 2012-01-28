@@ -1,6 +1,6 @@
-# Redismq
+# RedisMQ
 
-TODO: Write a gem description
+An implementation of topic exchanges using Redis.
 
 ## Installation
 
@@ -18,7 +18,17 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'redismq'
+
+client = RedisMQ::Client.new
+
+# send all announcements to the customer.signup topic to the email queue
+client.bind('customer.signup', 'email')
+
+# pretend a customer signed up
+client.publish('customer.signup', { id: 1 })
+```
 
 ## Contributing
 
