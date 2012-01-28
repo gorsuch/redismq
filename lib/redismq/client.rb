@@ -44,10 +44,6 @@ module RedisMQ
       "queue:#{queue}"
     end
     
-    def queue_name(queue_key)
-      queue_key.split(':').last
-    end
-     
     def topic_key(topic)
       "topic:#{topic}"
     end
