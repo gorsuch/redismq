@@ -18,6 +18,8 @@ Or install it yourself as:
 
 ## Usage
 
+The client will expects to find a valid redis URI at either `ENV['REDISMQ_URL']` or `ENV['REDISTOGO_URL]`, and will fall back to `redis://localhost:6379`.
+
 ### As a publisher
 
 ```ruby
