@@ -10,7 +10,7 @@ module RedisMQ
 
     def bpop(queue, timeout=0)
       (queue, message) = redis.blpop(queue_key(queue), timeout)
-      [queue_name(queue), JSON.parse(message)]
+      JSON.parse(message)
     end
 
     def connect_to_redis
