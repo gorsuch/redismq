@@ -4,8 +4,8 @@ require File.expand_path('../lib/redismq/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Michael Gorsuch"]
   gem.email         = ["michael.gorsuch@gmail.com"]
-  gem.description   = %q{An implementation of topic exchange using Redis.}
-  gem.summary       = %q{An implementation of topic exchange using Redis.}
+  gem.description   = %q{A cheap and naive implementation of topic exchanges on top of Redis.}
+  gem.summary       = %q{A cheap and naive implementation of topic exchanges on top of Redis.}
   gem.homepage      = "https://github.com/gorsuch/redismq"
 
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }

@@ -1,6 +1,6 @@
 # RedisMQ
 
-An implementation of topic exchanges using Redis.
+A cheap and naive implementation of topic exchanges on top of Redis.
 
 ## Installation
 
