@@ -41,11 +41,11 @@ module RedisMQ
     end
 
     def queue_key(queue)
-      "queue:#{queue}"
+      "rmq:queue:#{queue}"
     end
     
     def topic_key(topic)
-      "topic:#{topic}"
+      "rmq:topic:#{topic}"
     end
   end
 end
