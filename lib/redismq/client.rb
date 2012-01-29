@@ -14,7 +14,7 @@ module RedisMQ
     end
 
     def connect_to_redis
-      url = ENV['REDISMQ_URL'] || ENV['REDISTOGO_URL'] || "redis://localhost:6379"
+      url = ENV['REDISMQ_URL'] || ENV['REDISTOGO_URL'] || 'redis://localhost:6379'
       uri = URI.parse(url)
       Redis.new(host: uri.host, port: uri.port, password: uri.password)
     end
