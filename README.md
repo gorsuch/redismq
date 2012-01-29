@@ -2,6 +2,15 @@
 
 A cheap and naive implementation of topic exchanges on top of Redis.
 
+This project came about to help me decouple some smaller projects that already rely on Redis and don't need the weight of another dependancy.
+
+It is working well enough, but there are some limitations that you should be aware of:
+
+* all logic is client-side ; there is no central broker to ensure that everyone is playing by the rules
+* `publish` is O(n) - the larger the pool of queues-per-topic, the longer it takes to publish
+
+If you need a really robust message queue, you should give serious consideration to [RabbitMQ](http://www.rabbitmq.com/).
+
 ## Installation
 
 Add this line to your application's Gemfile:
