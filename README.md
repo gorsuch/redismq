@@ -9,7 +9,7 @@ It is working well enough, but there are some limitations that you should be awa
 * all logic is client-side ; there is no central broker to ensure that everyone is playing by the rules
 * `publish` is O(n) - the larger the pool of queues-per-topic, the longer it takes to publish
 
-If you need a really robust message queue, you should give serious consideration to [RabbitMQ](http://www.rabbitmq.com/).
+If you need a really robust message bus, you should give serious consideration to [RabbitMQ](http://www.rabbitmq.com/).
 
 ## Installation
 
