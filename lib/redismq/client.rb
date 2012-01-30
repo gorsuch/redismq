@@ -10,7 +10,7 @@ module RedisMQ
 
     def bpop(queue, timeout=0)
       (queue, message) = redis.blpop(queue_key(queue), timeout)
-      JSON.parse(message, symbolize_names: true)
+      parse_json(message)
     end
 
     def connect_to_redis
@@ -18,11 +18,15 @@ module RedisMQ
       uri = URI.parse(url)
       Redis.new(host: uri.host, port: uri.port, password: uri.password)
     end
-
+    
+    def parse_json(json)
+      JSON.parse(json, symbolize_names: true)
+    end
+    
     def pop(queue)
       result = redis.lpop(queue_key(queue))
       return nil if result.nil?
-      JSON.parse(result, symbolize_names: true)
+      parse_json(result)
     end
 
     def publish(topic, payload)
