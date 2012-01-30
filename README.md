@@ -6,6 +6,7 @@ This project came about to help me decouple some smaller projects that already r
 
 It is working well enough, but there are some limitations that you should be aware of:
 
+* test on ruby 1.9 only
 * all logic is client-side ; there is no central broker to ensure that everyone is playing by the rules
 * `publish` is O(n) - the larger the pool of queues-per-topic, the longer it takes to publish
 
