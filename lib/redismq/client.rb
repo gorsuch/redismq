@@ -4,6 +4,8 @@ require 'uri'
 
 module RedisMQ  
   class Client
+    attr_accessor :redis
+
     def bind(topic, queue)
       redis.sadd(topic_key(topic), queue_key(queue))
     end
